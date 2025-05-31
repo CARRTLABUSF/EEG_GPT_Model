@@ -1,0 +1,19 @@
+📊 Overall Evaluation Metrics:
+MAE: 16.8169
+MSE: 631.7037
+R² Score: 0.4130
+
+🦾 Shoulder Metrics:
+MAE: 22.1133
+MSE: 862.8573
+R² Score: 0.2137
+
+🦾 Elbow Metrics:
+MAE: 4.7093
+MSE: 117.1237
+R² Score: 0.5836
+
+🦾 Wrist Metrics:
+MAE: 15.5564
+MSE: 572.0768
+R² Score: 0.5555
