@@ -6,7 +6,7 @@ import datetime
 import re
 
 # Import the MOCAP parsing function and metadata.
-from mocap_parser import read_mocap_file, FileMetadata as MocapFileMetadata
+from mocap_parser import process_mocap_file, FileMetadata as MocapFileMetadata
 
 # Import the EEG processing function and metadata.
 from eeg_parser import process_eeg_file, FileMetadata as EegFileMetadata
@@ -160,7 +160,7 @@ def main(mocap_dir: str, eeg_dir: str, output_dir: str):
     for mocap_file, eeg_file in matches.items():
         try:
             # Read the raw MOCAP file.
-            mocap_df, mocap_meta = read_mocap_file(mocap_file)
+            mocap_df, mocap_meta = process_mocap_file(mocap_file)
             # Process the matching EEG file (without saving the processed output).
             eeg_df, eeg_meta = process_eeg_file(
                 str(eeg_file),

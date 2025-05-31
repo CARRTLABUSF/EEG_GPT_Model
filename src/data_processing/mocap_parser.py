@@ -21,7 +21,7 @@ class FileMetadata:
     end_time: float  # Absolute end time of recording (equal to header timestamp)
 
 
-def read_mocap_file(
+def process_mocap_file(
     filepath: Path, save_output: bool = False, out_dir: Path = None
 ) -> Tuple[pd.DataFrame, FileMetadata]:
     """
@@ -161,7 +161,7 @@ def read_mocap_file(
 def worker(arg):
     filepath, out_dir = arg
     try:
-        df, meta = read_mocap_file(
+        df, meta = process_mocap_file(
             Path(filepath), save_output=True, out_dir=Path(out_dir)
         )
         return {"filename": filepath, "status": "success", "meta": meta}

@@ -12,10 +12,22 @@ EEG_GPT_Model/
 ├── results/           # Model evaluation results and visualizations
 └── src/
     ├── data_processing/  # Data parsing and synchronization
-    │   └── requirements.txt  # Dependencies for data processing
     └── models/          # Model training and prediction
-        └── requirements.txt  # Dependencies for model training
 ```
+
+## Data Setup
+
+Before running any code, you need to extract the data files:
+
+1. Extract the raw data:
+
+   ```bash
+   # Extract EEG data
+   unzip "data/raw/eeg/RAW EEG DATA FINAL.zip" -d data/raw/eeg/
+
+   # Extract MoCap data
+   unzip "data/raw/mocap/RAW MOCAP DATA FINAL.zip" -d data/raw/mocap/
+   ```
 
 ## Setup
 
@@ -44,9 +56,7 @@ pip install -r src/models/requirements.txt
 
 1. Data Processing:
 
-   - Process raw EEG data: `python src/data_processing/eeg_parser.py`
-   - Process MoCap data: `python src/data_processing/mocap_parser.py`
-   - Synchronize datasets: `python src/data_processing/synchronize.py`
+   - Synchronize datasets: `python src/data_processing/synchronize.py --mocap_dir data/raw/mocap --eeg_dir data/raw/eeg --output_dir data/processed`
 
 2. Model Training:
 
